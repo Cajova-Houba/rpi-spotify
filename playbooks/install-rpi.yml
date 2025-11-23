@@ -1,0 +1,9 @@
+---
+- name: Install Spotify
+  hosts: rpi
+  become: true
+  roles:
+    # - rspotify
+    - rpihole
+    
+    

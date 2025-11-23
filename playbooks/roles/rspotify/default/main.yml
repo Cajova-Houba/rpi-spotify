@@ -1,0 +1,4 @@
+---
+
+# version 0.31.8.1 is needed because I have RPI 1
+raspotify_deb_url: "https://github.com/dtcooper/raspotify/releases/download/0.31.8.1/raspotify_0.31.8.1.librespot.v0.3.1-54-gf4be9bb_armhf.deb"

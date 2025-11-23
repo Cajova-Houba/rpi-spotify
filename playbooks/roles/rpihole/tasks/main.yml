@@ -1,0 +1,12 @@
+---
+
+- name: Download installation script
+  ansible.builtin.get_url:
+    url: "https://install.pi-hole.net"
+    dest: "/tmp/basic-install.sh"
+
+- name: Run installation script
+  become: true
+  ansible.builtin.shell:
+    cmd: "/tmp/basic-install.sh"
+    
