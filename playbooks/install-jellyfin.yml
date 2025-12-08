@@ -1,0 +1,8 @@
+---
+- name: Install Jellyfin
+  hosts: jellyfin
+  become: true
+  roles:
+    # - jellyfin
+    - prometheus.prometheus.node_exporter
+    

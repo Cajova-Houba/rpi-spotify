@@ -1,0 +1,4 @@
+---
+
+jellyfin_script_url: "https://repo.jellyfin.org/install-debuntu.sh"
+jellyfin_script_path: "/tmp/install-jellyfin.sh"

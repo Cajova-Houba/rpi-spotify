@@ -1,0 +1,17 @@
+---
+
+# Does not work because it requires manual confirmation
+# and I'm too lazy to do ansible for manual installation (as described in docs)
+# therefore, I just install it manually
+#
+# - name: Download Jellyfin install script
+#   ansible.builtin.get_url:
+#     url: "{{ jellyfin_script_url }}"
+#     dest: "{{ jellyfin_script_path }}"
+#     mode: '0744'
+
+# - name: Run the Jellyfin install script
+#   become: true
+#   ansible.builtin.command: "{{ jellyfin_script_path }}"
+#   args:
+#     creates: /usr/bin/jellyfin
