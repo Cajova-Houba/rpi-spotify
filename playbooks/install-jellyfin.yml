@@ -5,4 +5,5 @@
   roles:
     # - jellyfin
     - prometheus.prometheus.node_exporter
+    - print_server
     

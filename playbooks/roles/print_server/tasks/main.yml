@@ -1,0 +1,26 @@
+---
+
+# https://www.tomshardware.com/how-to/raspberry-pi-print-server
+
+- name: Apt update
+  become: true
+  ansible.builtin.apt:
+    update_cache: yes
+
+- name: Install CUPS and related packages
+  become: true
+  ansible.builtin.apt:
+    name:
+      - cups
+
+- name: Add default user to lpadmin group
+  become: true
+  ansible.builtin.user:
+    name: "{{ ansible_user }}"
+    groups: lpadmin
+    append: yes
+  
+- name: Enable cups over network
+  become: true
+  ansible.builtin.shell:
+    cmd: cupsctl --remote-any
