@@ -1,0 +1,6 @@
+---
+
+print_server_scan_dir: /media/brscan
+
+print_server_scantofile_script_path: "/opt/brother/scanner/brscan-skey/script/scantofile.sh"
+print_server_scantofile_config_path: "/etc/opt/brother/scanner/brscan-skey/scantofile.config"

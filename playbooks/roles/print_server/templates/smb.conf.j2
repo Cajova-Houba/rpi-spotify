@@ -1,0 +1,12 @@
+[global]
+    map to guest = Bad User
+    log file = /var/log/samba/%m
+    log level = 1
+    server role = standalone server
+
+[brscan]
+    comment = My scan directory
+    path = {{ print_server_scan_dir }}
+    read only = yes
+    browsable = yes
+    public = yes

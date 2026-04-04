@@ -24,3 +24,9 @@
   become: true
   ansible.builtin.shell:
     cmd: cupsctl --remote-any
+
+- name: Custom scanning configuration
+  import_tasks: configure-scanning.yml
+
+- name: Share scan directory via samba
+  import_tasks: share_scan_dir.yml

@@ -3,7 +3,12 @@
   hosts: jellyfin
   become: true
   roles:
-    # - jellyfin
-    - prometheus.prometheus.node_exporter
-    - print_server
+    - name: jellyfin
+      tags: jellyfin
+    
+    - name: prometheus.prometheus.node_exporter
+      tags: node_exporter
+
+    - name: print_server
+      tags: print_server
     

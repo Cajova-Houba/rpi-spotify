@@ -1,0 +1,36 @@
+---
+
+- name: Ensure scan directory exists
+  become: true
+  ansible.builtin.file:
+    path: "{{ print_server_scan_dir }}"
+    state: directory
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
+    mode: '0755'
+
+- name: Ensure samba is installed
+  become: true
+  ansible.builtin.apt:
+    name: samba
+
+- name: Configure samba to share scan directory
+  become: true
+  ansible.builtin.template:
+    src: smb.conf.j2
+    dest: /etc/samba/smb.conf
+    owner: root
+    group: root
+    mode: '0644'
+
+- name: Allow samba through UFW
+  become: true
+  community.general.ufw:
+    rule: allow
+    name: 'Samba'
+
+- name: Restart samba service
+  become: true
+  ansible.builtin.service:
+    name: smbd
+    state: restarted
