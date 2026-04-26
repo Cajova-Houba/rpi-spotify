@@ -1,0 +1,22 @@
+---
+- name: Install Pi Hole
+  hosts: rpi
+  become: true
+  pre_tasks:
+    - name: Set static ip
+      ansible.builtin.shell:
+        cmd: "nmcli c mod \"Wired connection 1\" ipv4.addresses 192.168.0.10/24 ipv4.method manual"
+    - name: Set static gateway
+      ansible.builtin.shell:
+        cmd: "nmcli c mod \"Wired connection 1\" ipv4.gateway 192.168.0.1"
+    - name: Set static gateway
+      ansible.builtin.shell:
+        cmd: "nmcli c mod \"Wired connection 1\" ipv4.dns  8.8.8.8"
+    - name: Restart network connection to apply config
+      ansible.builtin.shell:
+        cmd: "nmcli c down \"Wired connection 1\" && sudo nmcli c up \"Wired connection 1\""
+  roles:
+    - rpihole
+    # - prometheus.prometheus.node_exporter
+    
+    

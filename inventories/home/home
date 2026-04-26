@@ -1,6 +1,6 @@
 [rpi]
-# 192.168.0.10
-rpi.local
+192.168.0.10
+#rpi.local
 
 [rpi:vars]
 ansible_ssh_private_key_file=secrets/rpi_home_rsa

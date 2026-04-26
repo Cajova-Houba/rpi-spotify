@@ -1,0 +1,5 @@
+---
+
+rpi_hole_install_script_url: "https://install.pi-hole.net"
+rpi_hole_install_script_path: "/tmp/basic-install.sh"
+rpi_hole_pihole_script: "/etc/pihole/pihole.toml"

@@ -1,12 +1,39 @@
 ---
 
+- name: Check if the download script exists
+  ansible.builtin.stat:
+    path: "{{ rpi_hole_install_script_path }}"
+  register: script_stat
+
 - name: Download installation script
   ansible.builtin.get_url:
-    url: "https://install.pi-hole.net"
-    dest: "/tmp/basic-install.sh"
+    url: "{{ rpi_hole_install_script_url }}"
+    dest: "{{ rpi_hole_install_script_path }}"
+    mode: "u=rwx,g=wrx,o=r"
+  when: not script_stat.stat.exists
 
-- name: Run installation script
+- name: Touch RPI config file, the script otherwise displays dialogs
+  become: true
+  ansible.builtin.file:
+    path: "/etc/pihole/setupVars.conf"
+    state: touch
+
+# - name: Run installation script
+#   become: true
+#   ansible.builtin.shell:
+#     cmd: "{{ rpi_hole_install_script_path }} --unattended --reconfigure"
+
+- name: Provide custom config
+  become: true
+  ansible.builtin.copy:
+    src: "pihole.toml"
+    dest: "{{ rpi_hole_pihole_script }}"
+    owner: pihole
+    group: pihole
+    mode: "u=rw,g=r"
+
+- name: Update config
   become: true
   ansible.builtin.shell:
-    cmd: "/tmp/basic-install.sh"
+    cmd: "pihole reloaddns"
     
