@@ -17,6 +17,6 @@
         cmd: "nmcli c down \"Wired connection 1\" && sudo nmcli c up \"Wired connection 1\""
   roles:
     - rpihole
-    # - prometheus.prometheus.node_exporter
+    - prometheus.prometheus.node_exporter
     
     
