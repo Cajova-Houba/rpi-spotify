@@ -1,0 +1,33 @@
+- name: Install required packages
+  become: true
+  ansible.builtin.package:
+    name:
+      - adduser
+      - libfontconfig1
+      - musl
+    state: present
+
+- name: Download Grafana deb package
+  become: true
+  ansible.builtin.get_url:
+    url: "{{ grafana_deb_url }}"
+    dest: "/tmp/grafana_{{ grafana_version }}_linux_amd64.deb"
+    mode: '0644'
+
+- name: Install Grafana deb package
+  become: true
+  ansible.builtin.apt:
+    deb: "/tmp/grafana_{{ grafana_version }}_linux_amd64.deb"
+    state: present
+
+- name: Reload systemd daemon
+  become: true
+  ansible.builtin.systemd:
+    daemon_reload: yes
+
+- name: Ensure Grafana service is enabled and started
+  become: true
+  ansible.builtin.service:
+    name: grafana-server
+    state: started
+    enabled: true

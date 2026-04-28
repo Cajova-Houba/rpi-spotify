@@ -7,8 +7,13 @@
       tags: jellyfin
     
     - name: prometheus.prometheus.node_exporter
-      tags: node_exporter
+      tags: prometheus
+
+    - name: prometheus.prometheus.prometheus
+      tags: prometheus
 
     - name: print_server
       tags: print_server
     
+    - name: grafana
+      tags: grafana

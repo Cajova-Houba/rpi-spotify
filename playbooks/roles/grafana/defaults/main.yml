@@ -1,0 +1,6 @@
+---
+grafana_general_version: "13.0.1"
+grafana_version: "{{ grafana_general_version }}_24542347077"
+grafana_deb_url: "https://dl.grafana.com/grafana/release/{{ grafana_general_version }}/grafana_{{ grafana_version }}_linux_amd64.deb"
+grafana_user: "grafana"
+grafana_group: "grafana"
