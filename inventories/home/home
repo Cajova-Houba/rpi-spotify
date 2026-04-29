@@ -7,7 +7,7 @@ ansible_ssh_private_key_file=secrets/rpi_home_rsa
 ansible_user=zdenda
 
 [jellyfin]
-jellyfin.local
+jellyfin.lan
 
 [jellyfin:vars]
 ansible_ssh_private_key_file=secrets/rpi_home_rsa

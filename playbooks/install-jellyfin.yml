@@ -9,7 +9,7 @@
     - name: prometheus.prometheus.node_exporter
       tags: prometheus
 
-    - name: prometheus.prometheus.prometheus
+    - name: prometheus
       tags: prometheus
 
     - name: print_server
