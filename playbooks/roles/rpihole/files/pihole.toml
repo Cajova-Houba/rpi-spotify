@@ -128,7 +128,7 @@
   #
   # Allowed values are:
   #     Array of custom DNS records each one in HOSTS form: "IP HOSTNAME [HOSTNAME ...]"
-  hosts = [ "192.168.0.10 rpi.local", "192.168.0.191 jellyfin.local"]
+  hosts = [ "192.168.0.10 rpi.lan", "192.168.0.191 jellyfin.lan"]
 
   # If set, queries for plain names, without dots or domain parts, are never forwarded to
   # upstream nameservers
@@ -606,7 +606,7 @@
   #
   # Allowed values are:
   #     true or false
-  ipv6 = false
+  ipv6 = true
 
   # Enable DHCPv4 Rapid Commit Option specified in RFC 4039. Should only be enabled if
   # either the server is the only server for the subnet to avoid conflicts
@@ -660,7 +660,7 @@
   # Allowed values are:
   #     Array of static leases each one in the following form:
   #     "[<hwaddr>][,id:<client_id>|*][,set:<tag>][,tag:<tag>][,<ipaddr>][,<hostname>][,<lease_time>][,ignore]"
-  hosts = [ "d0:37:45:0e:53:4d, 192.168.0.177,desktop-wifi,24h"]
+  hosts = [ "d0:37:45:0e:53:4d, 192.168.0.177, desktop-wifi,24h"]
 
   [ntp.ipv4]
     # Should FTL act as network time protocol (NTP) server (IPv4)?
