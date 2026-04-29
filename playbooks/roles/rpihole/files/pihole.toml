@@ -128,7 +128,7 @@
   #
   # Allowed values are:
   #     Array of custom DNS records each one in HOSTS form: "IP HOSTNAME [HOSTNAME ...]"
-  hosts = [ "192.168.0.10 rpi.lan", "192.168.0.191 jellyfin.lan"]
+  hosts = [ "192.168.0.10 rpi.lan", "192.168.0.191 jellyfin.lan", "192.168.0.191 grafana.lan" ]
 
   # If set, queries for plain names, without dots or domain parts, are never forwarded to
   # upstream nameservers
