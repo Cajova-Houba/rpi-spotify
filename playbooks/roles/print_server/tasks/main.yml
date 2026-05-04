@@ -2,10 +2,10 @@
 
 # https://www.tomshardware.com/how-to/raspberry-pi-print-server
 
-- name: Apt update
-  become: true
-  ansible.builtin.apt:
-    update_cache: yes
+# - name: Apt update
+#   become: true
+#   ansible.builtin.apt:
+#     update_cache: yes
 
 - name: Install CUPS and related packages
   become: true

@@ -1,19 +1,29 @@
 ---
 
-- name: Apply custom scantofile script
+- name: Apply custom scan-to script
   become: true
   ansible.builtin.template:
-    src: scantofile.sh.j2
-    dest: "{{ print_server_scantofile_script_path }}"
+    src: "{{ item.src }}"
+    dest: "{{ item.path }}"
     owner: "{{ ansible_user }}"
     group: "{{ ansible_user }}"
     mode: '0775'
+  loop:
+    - src: "scantofile.sh.j2"
+      path: "{{ print_server_scantofile_script_path }}"
+    - src: "scantoimage.sh.j2"
+      path: "{{ print_server_scantoimage_script_path }}"
 
-- name: Apply custom scantofile configuration
+- name: Apply custom scan-to configuration
   become: true
   ansible.builtin.template:
-    src: scantofile.config.j2
-    dest: "{{ print_server_scantofile_config_path }}"
+    src: "{{ item.src }}"
+    dest: "{{ item.path }}"
     owner: root
     group: root
     mode: '0644'
+  loop:
+    - src: scantofile.config.j2 
+      path: "{{ print_server_scantofile_config_path }}"
+    - src: scantoimage.config.j2
+      path: "{{ print_server_scantoimage_config_path }}"

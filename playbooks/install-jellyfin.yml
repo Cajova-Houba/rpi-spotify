@@ -18,10 +18,7 @@
     - name: grafana
       tags: grafana
   post_tasks:
-    - name: Apt update
-      ansible.builtin.apt:
-        update_cache: true
-
+  
     - name: Install additional packages
       ansible.builtin.package:
         name:
