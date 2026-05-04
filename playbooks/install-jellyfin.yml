@@ -18,11 +18,6 @@
     - name: grafana
       tags: grafana
   post_tasks:
-    - name: Add Deluge PPA repo
-      ansible.builtin.apt_repository:
-        repo: ppa:deluge-team/stable
-        state: present
-    
     - name: Apt update
       ansible.builtin.apt:
         update_cache: true
@@ -30,6 +25,5 @@
     - name: Install additional packages
       ansible.builtin.package:
         name:
-          - deluged 
-          - deluge-web 
-          - deluge-console
+          - transmission
+          - transmission-cli
