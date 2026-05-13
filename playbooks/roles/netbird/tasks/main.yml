@@ -1,0 +1,26 @@
+---
+
+- name: Copy netbird gpg keyring
+  become: true
+  ansible.builtin.copy:
+    src: netbird-archive-keyring.gpg 
+    dest: /usr/share/keyrings/netbird-archive-keyring.gpg
+    owner: root
+    group: root
+    mode: "o=rw,g=r"
+
+- name: Add netbird app repo
+  ansible.builtin.apt_repository:
+    repo: deb [signed-by=/usr/share/keyrings/netbird-archive-keyring.gpg] https://pkgs.netbird.io/debian stable main
+    state: present
+
+- name: Apt update
+  become: yes
+  ansible.builtin.apt:
+    update_cache: yes
+
+
+- name: Install the netbird package
+  become: true
+  ansible.builtin.package:
+    name: netbird

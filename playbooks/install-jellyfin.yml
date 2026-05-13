@@ -17,10 +17,9 @@
     
     - name: grafana
       tags: grafana
-  post_tasks:
-  
-    - name: Install additional packages
-      ansible.builtin.package:
-        name:
-          - transmission
-          - transmission-cli
+    
+    - name: netbird
+      tags: netbird
+
+    - name: transmission
+      tags: transmission

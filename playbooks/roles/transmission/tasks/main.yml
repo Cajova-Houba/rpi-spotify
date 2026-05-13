@@ -1,0 +1,26 @@
+---
+
+- name: Install transmission
+  ansible.builtin.package:
+    name:
+      - transmission
+      - transmission-cli
+      - transmission-daemon
+
+- name: Stop transmission daemon
+  ansible.builtin.service:
+    name: transmission-daemon
+    state: stopped
+
+- name: Apply custom configuration
+  ansible.builtin.template:
+    src: settings.json.j2
+    dest: "{{ transmission_config_path }}"
+    mode: 0777
+    owner: root
+    group: root
+
+- name: Start transmission daemon
+  ansible.builtin.service:
+    name: transmission-daemon
+    state: started

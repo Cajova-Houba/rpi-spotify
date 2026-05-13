@@ -1,0 +1,4 @@
+---
+
+transmission_config_path: "/var/lib/transmission-daemon/info/settings.json"
+transmission_whitelist: "127.0.0.1,192.168.0.177"

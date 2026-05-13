@@ -16,6 +16,7 @@
         state: present
   roles:
     - rpihole
+    - netbird
     - prometheus.prometheus.node_exporter
     
     
