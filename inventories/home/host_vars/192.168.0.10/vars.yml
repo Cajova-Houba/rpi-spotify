@@ -1,0 +1,6 @@
+---
+
+# nmcli con show
+nmcli_connection_name: "Wired connection 1"
+
+ansible_become_password: "{{ vault_ansible_become_password }}"
